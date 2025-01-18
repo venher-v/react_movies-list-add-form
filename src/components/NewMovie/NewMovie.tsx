@@ -32,20 +32,20 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
     setImdbUrl(val);
   };
 
-  const handleImdbUId = (val: string) => {
+  const handleImdbId = (val: string) => {
     setImdbId(val);
   };
 
-  const trimedTitle = title.trim();
-  const trimedDescription = description.trim();
-  const trimedImgUrl = imgUrl.trim();
+  const trimmedTitle = title.trim();
+  const trimmedDescription = description.trim();
+  const trimmedImgUrl = imgUrl.trim();
   const trimmedImdbUrl = imdbUrl.trim();
   const trimmedImdbId = imdbId.trim();
 
   const newMovie = {
-    title: trimedTitle,
-    description: trimedDescription,
-    imgUrl: trimedImgUrl,
+    title: trimmedTitle,
+    description: trimmedDescription,
+    imgUrl: trimmedImgUrl,
     imdbUrl: trimmedImdbUrl,
     imdbId: trimmedImdbId,
   };
@@ -53,7 +53,7 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
 
-    if (trimedTitle || trimedImgUrl || trimmedImdbUrl || trimmedImdbId) {
+    if (trimmedTitle && trimmedImgUrl && trimmedImdbUrl && trimmedImdbId) {
       onAdd(newMovie);
     }
 
@@ -104,7 +104,7 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
         name="imdbId"
         label="Imdb ID"
         value={imdbId}
-        onChange={handleImdbUId}
+        onChange={handleImdbId}
         required
       />
 
